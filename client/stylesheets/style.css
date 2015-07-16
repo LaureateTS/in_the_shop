@@ -1,0 +1,16 @@
+/* loading page from https://atmospherejs.com/pcel/loading */
+.loading-message {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+
+.sk-spinner-rotating-plane.sk-spinner {
+  background-color: #fff;
+}
+
+/* layout */
+body {
+  padding-top: 50px;
+}
