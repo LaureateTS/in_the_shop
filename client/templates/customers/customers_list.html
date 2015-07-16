@@ -1,0 +1,6 @@
+<template name="customersList">
+    <p>
+        Create new <a href="{{pathFor 'customerAdd'}}">Customer</a>
+    </p>
+    {{#each customers}} {{> customer}} {{/each}}
+</template>

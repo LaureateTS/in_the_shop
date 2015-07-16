@@ -14,3 +14,11 @@
 body {
   padding-top: 50px;
 }
+
+/* slightly better spacing of the buttons on the customer panel */
+.btn-group.btn-block {
+    display: table;
+}
+.btn-group.btn-block > .btn {
+    display: table-cell;
+}
