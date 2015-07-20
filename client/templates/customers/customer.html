@@ -2,31 +2,32 @@
     <div class="col-md-2">
         <div class="panel panel-{{#if isIn}}primary{{else}}default{{/if}}">
             <div class="panel-heading">
-                {{!--<div class="panel-title">--}}
+                <div class="panel-title">
                     <strong>{{lastName}},</strong> {{firstName}}</div>
-            {{!--</div>--}}
+            </div>
 
             <div class="btn-group"><div class="btn-block">
 
-                <button class="customerDetails btn btn-xs btn-default">
+                <a href="{{pathFor 'customerDetails'}}" class="customerDetails btn btn-xs btn-default">
                     Details
-                </button>
+                </a>
 
                 {{!--<div class="dropdown">--}}
-                    <button class="btn btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                        Options
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="{{#if isIn}}""{{else}}disabled{{/if}}">
-                            <a href="#">Inline spacebars</a>
-                        </li>
-                        <li class="{{#if isIn}}""{{else}}disabled{{/if}}">
-                            <a href="#">Option 2</a>
-                        </li>
-                    </ul>
+                <button class="btn btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    Options
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="{{#if isIn}}""{{else}}disabled{{/if}}">
+                        <a href="#">Inline spacebars</a>
+                    </li>
+                    <li class="{{#if isIn}}""{{else}}disabled{{/if}}">
+                        <a href="#">Option 2</a>
+                    </li>
+                </ul>
                 {{!--</div>--}} 
-                    
+            
+                {{!-- supposedly there is a bug in some browser with spacebars inside a button tag, therefore making complete set of tags for each condition --}}
                 {{#if isIn}}
                 <button class="toggleInOut btn btn-xs btn-danger">
                     Out

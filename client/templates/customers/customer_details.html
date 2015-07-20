@@ -1,0 +1,35 @@
+<template name="customerDetails">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{firstName}} {{lastName}}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="list-group">
+                <a class="list-group-item" href="#"> Home: {{homePhone}}</a>
+                <a class="list-group-item" href="#"> Mobile: {{mobilePhone}}</a>
+            </div>
+            <a href="{{pathFor 'customerEdit'}}" class="customerEdit btn btn-default">
+                Edit
+            </a>
+            <form name="addPhoneLog">
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" placeholder="Type a note" name="message"></textarea>
+                    <input type="hidden" name="customerId" value="{{_id}}">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="category">Category</label>
+                </div>
+                <select id="category-select" class="btn btn-default" name="messageType">
+                    <option disabled="disabled" selected="selected">Please Select</option>
+                    <option value="phonecall">phonecall</option>
+                    <option value="note">note</option>
+                    <option value="chit">chit</option>
+                </select>
+
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </form>
+            {{> messageList }}
+        </div>
+    </div>
+</template>

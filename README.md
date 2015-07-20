@@ -13,6 +13,7 @@ To run your new app open your terminal and type:
     $ meteor --port $IP:$PORT
 
 [preview in c9](https://in-the-shop-laureatets.c9.io/ "preview")
+[Latest *"Stable"*](http://intheshop.meteor.com/ "Try  it")
 
 Happy coding!
 The Cloud9 IDE team
