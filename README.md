@@ -26,4 +26,4 @@ Meteor documentation can be found at http://docs.meteor.com/
 * twbs:bootstrap
 * iron:router
 * pcel:loading
-* 
+* meteorhacks:kadira
