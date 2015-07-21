@@ -16,7 +16,7 @@ To run your new app open your terminal and type:
 
 [Latest *"Stable"*](http://intheshop.meteor.com/ "Try  it")
 
-[performance statistics](https://ui.kadira.io/ "perfmon(requires login")
+[performance statistics](https://ui.kadira.io/ "perfmon(requires login)")
 
 Happy coding!
 The Cloud9 IDE team
@@ -26,10 +26,10 @@ The Cloud9 IDE team
 Meteor documentation can be found at http://docs.meteor.com/
 
 ## Installed packages
-|package|feature|
-|-------|-------|
-|twbs:bootstrap     |css/mobile ui|
+|package            |feature                        |
+|-------------------|-------------------------------|
+|twbs:bootstrap     |css/mobile ui                  |
 |iron:router        |routing/routes/route based subs|
-|pcel:loading       |fancy loading screen|
-|meteorhacks:kadira |performance monitoring|
-|sanjo:jasmine      |testing with velocity|
+|pcel:loading       |fancy loading screen           |
+|meteorhacks:kadira |performance monitoring         |
+|sanjo:jasmine      |testing with velocity          |
