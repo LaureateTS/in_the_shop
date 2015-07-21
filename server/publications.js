@@ -1,20 +1,20 @@
-Meteor.publish("customers", function() {
-  return Customers.find({});
+Meteor.publish("people", function() {
+  return People.find({});
 });
 
 Meteor.publish("messages", function() {
   return Messages.find({});
 })
 
-Meteor.publish("customerById", function(id) {
+Meteor.publish("personById", function(id) {
   check(id, String);
-  return Customers.find({
+  return People.find({
     _id: id
   });
 });
 
-Meteor.publish("messagesForCustomer", function(id) {
+Meteor.publish("messagesForPerson", function(id) {
   return Messages.find({
-    userId: id
+    personId: id
   });
 });

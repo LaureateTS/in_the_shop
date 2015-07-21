@@ -1,0 +1,6 @@
+<template name="peopleList">
+    <p>
+        Create new <a href="{{pathFor 'personAdd'}}">Person</a>
+    </p>
+    {{#each people}} {{> person this}} {{/each}}
+</template>
