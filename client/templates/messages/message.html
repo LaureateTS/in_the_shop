@@ -1,12 +1,23 @@
+<template name="messageList">
+    {{#each messages}}
+    {{> message}}
+    {{/each}}
+</template>
+
 <template name="message">
+    
     {{#if showWell}}
+    
     <div class="well">
-        <p> By {{ userId }} At {{ timestamp }}</p>
-        <p>{{ message }}</p>
+        <strong><p> By {{ userId }} At {{ timestamp }}</p></strong>
+        <em><p>{{ message }}</p></em>
     </div>
+    
     {{else}}
-    <div class="alert alert-success">
+    
+    <div class="alert alert-{{#if logFormatGreen}}success{{else}}danger{{/if}}">
         {{ timestamp }} {{ message }}
     </div>
+    
     {{/if}}
 </template>

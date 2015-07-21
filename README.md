@@ -12,7 +12,7 @@ To run your new app open your terminal and type:
 
     $ meteor --port $IP:$PORT
 
-[preview in c9](https://in-the-shop-laureatets.c9.io/ "preview")
+[preview in c9](https://intheshop-laureatets.c9.io/ "preview")
 
 [Latest *"Stable"*](http://intheshop.meteor.com/ "Try  it")
 
@@ -32,4 +32,3 @@ Meteor documentation can be found at http://docs.meteor.com/
 |iron:router        |routing/routes/route based subs|
 |pcel:loading       |fancy loading screen           |
 |meteorhacks:kadira |performance monitoring         |
-|sanjo:jasmine      |testing with velocity          |
