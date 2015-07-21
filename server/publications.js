@@ -18,3 +18,8 @@ Meteor.publish("messagesForPerson", function(id) {
     personId: id
   });
 });
+
+Meteor.publish("getUserName", function(id) {
+  // var userName = Meteor.users.findOne(id).userName;
+  return Meteor.users.find(id);
+});

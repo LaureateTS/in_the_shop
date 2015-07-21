@@ -12,5 +12,10 @@ Template.message.helpers({
     logFormatGreen: function() {
         if (this.message.slice(this.message.length - 2) === "In") return true;
         else return false;
+    },
+    userName: function() {
+        Meteor.subscribe('getUserName', this.userId);
+        var user = Meteor.users.findOne(this.userId);
+        return user.username;
     }
 });

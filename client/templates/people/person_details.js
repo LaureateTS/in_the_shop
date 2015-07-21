@@ -15,3 +15,7 @@ Template.personDetails.events({
         event.target.message.value = "";
     }
 });
+
+Template.personDetails.helper({
+    
+});
