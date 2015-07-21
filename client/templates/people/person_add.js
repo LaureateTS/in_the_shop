@@ -1,17 +1,17 @@
-Template.customerAdd.events({
+Template.personAdd.events({
     "submit form": function(event) {
         event.preventDefault();
-        var customer = {
+        var person = {
             firstName: $(event.target).find('[name=firstName]').val(),
             lastName: $(event.target).find('[name=lastName]').val(),
             homePhone: $(event.target).find('[name=homePhone]').val(),
             mobilePhone: $(event.target).find('[name=mobilePhone]').val()
         };
-        Meteor.call('customerCreate', customer, function(error, result) {
+        Meteor.call('personCreate', person, function(error, result) {
             if (error) {
                 alert(error.reason);
             }
-            Router.go('customersList');
+            Router.go('peopleList');
         });
     }
 });

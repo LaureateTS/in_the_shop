@@ -15,7 +15,7 @@ body {
   padding-top: 50px;
 }
 
-/* slightly better spacing of the buttons on the customer panel */
+/* slightly better spacing of the buttons on the person panel */
 .btn-group.btn-block {
     display: table;
 }
