@@ -1,0 +1,5 @@
+<template name="eventsList">
+    {{#if isPersonDetailsContext }} {{else}}
+    <p>Create new <a href="{{pathFor 'eventAdd'}}">Event</a></p>
+    {{/if}} {{#each events}} {{> event }} {{/each}}
+</template>

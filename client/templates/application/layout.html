@@ -1,4 +1,8 @@
 <template name="layout">
   {{> nav}} 
-  {{> yield}}
+  {{#if currentUser }}
+    {{> yield}}
+  {{else}}
+    {{> notFound}}
+  {{/if}}
 </template>

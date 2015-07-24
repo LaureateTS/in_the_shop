@@ -20,6 +20,9 @@ Meteor.publish("messagesForPerson", function(id) {
 });
 
 Meteor.publish("getUserName", function(id) {
-  // var userName = Meteor.users.findOne(id).userName;
   return Meteor.users.find(id);
+});
+
+Meteor.publish("events", function() {
+    return Events.find({},{sort: {eventDate:-1},limit:20});
 });

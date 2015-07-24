@@ -16,6 +16,6 @@ Template.personDetails.events({
     }
 });
 
-Template.personDetails.helper({
+Template.personDetails.helpers({
     
 });
