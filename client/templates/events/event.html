@@ -1,11 +1,18 @@
 <template name="event">
+    {{#if isPersonDetailsContext }}
     <tr>
+
         <td>
             <button class="btn btn-xs btn-default" type="button">
                 <strong>{{ eventTitle }}</strong> {{ eventDate }} {{ eventTime }}
             </button>
         </td>
-        {{#if isPersonDetailsContext }} {{#if isConfirmed}}
+        <td>
+            <span class="badge">
+            {{numConfirms}}
+            </span>
+        </td>
+        {{#if isConfirmed}}
         <td>
             <button id="confirmButton" class="toggleConfirm btn btn-xs btn-danger" value=true>
                 Unconfirm
@@ -17,6 +24,18 @@
                 Confirm
             </button>
         </td>
-        {{/if }} {{/if }}
+        {{/if }}
     </tr>
+
+    {{else}}
+    <li class="active" role="presentation">
+        <a href="#">
+            <strong>{{ eventTitle }}</strong> {{ eventDate }} {{ eventTime }}
+            <span class="badge">
+            {{numConfirms}}
+        </span>
+        </a>
+    </li>
+    {{/if }}
+
 </template>

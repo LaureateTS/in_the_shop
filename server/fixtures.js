@@ -79,3 +79,21 @@ if (People.find().count() === 0) {
     mobilePhone: "0600000026"
   });
 }
+
+if (Events.find().count() === 0) {
+  Events.insert({
+    eventTitle: "Christmas",
+    eventDate: "25/12/2015",
+    eventTime: "20:00",
+  });
+  Events.insert({
+    eventTitle: "New Years",
+    eventDate: "31/12/2015",
+    eventTime: "22:30",
+  });
+  Events.insert({
+    eventTitle: "Eastern",
+    eventDate: "27/03/2016",
+    eventTime: "10:45",
+  });
+}

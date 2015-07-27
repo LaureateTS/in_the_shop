@@ -14,6 +14,12 @@ Template.event.helpers({
             }
         }
         return false;
+    },
+    numConfirms: function() {
+        // Inside event.helpers 'this' refers to the event document exactly as it is stored in mongo
+        return this.confirms.filter(function(o){
+            return o.confirmed === true;
+        }).length;
     }
 });
 

@@ -7,7 +7,7 @@ Template.personAdd.events({
             homePhone: $(event.target).find('[name=homePhone]').val(),
             mobilePhone: $(event.target).find('[name=mobilePhone]').val()
         };
-        Meteor.call('personCreate', person, function(error, result) {
+        Meteor.call('personAdd', person, function(error, result) {
             if (error) {
                 alert(error.reason);
             }
