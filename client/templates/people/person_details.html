@@ -11,6 +11,7 @@
             <a href="{{pathFor 'personEdit'}}" class="personEdit btn btn-default">
                 Edit
             </a>
+            {{!-- Yields the list of upcoming events --}}
             {{> eventsList }}
             <form name="addPhoneLog">
                 <div class="form-group">
@@ -30,6 +31,7 @@
 
                 <input type="submit" value="Submit" class="btn btn-primary" />
             </form>
+            {{!-- Yields the messages related to this person --}}
             {{> messageList }}
         </div>
     </div>

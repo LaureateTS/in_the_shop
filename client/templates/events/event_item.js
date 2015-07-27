@@ -1,4 +1,4 @@
-Template.event.helpers({
+Template.eventItem.helpers({
     isPersonDetailsContext: function() {
         if (Iron.Location.get().path.substring(0, 21) === "/people/personDetails") return true;
     },
@@ -17,13 +17,13 @@ Template.event.helpers({
     },
     numConfirms: function() {
         // Inside event.helpers 'this' refers to the event document exactly as it is stored in mongo
-        return this.confirms.filter(function(o){
+        return this.confirms.filter(function(o) {
             return o.confirmed === true;
         }).length;
     }
 });
 
-Template.event.events({
+Template.eventItem.events({
     "click .toggleConfirm": function() {
         var personId = Iron.Location.get().path.substring(22);
         Meteor.call('eventConfirmToggle', this._id, personId);

@@ -1,11 +1,11 @@
-<template name="event">
+<template name="eventItem">
     {{#if isPersonDetailsContext }}
     <tr>
 
         <td>
-            <button class="btn btn-xs btn-default" type="button">
+            <a  href="{{pathFor 'eventDetails'}}" class="btn btn-xs btn-default" type="button">
                 <strong>{{ eventTitle }}</strong> {{ eventDate }} {{ eventTime }}
-            </button>
+            </a>
         </td>
         <td>
             <span class="badge">
@@ -26,16 +26,16 @@
         </td>
         {{/if }}
     </tr>
-
     {{else}}
+    
     <li class="active" role="presentation">
-        <a href="#">
+        <a href="{{pathFor 'eventDetails'}}">
             <strong>{{ eventTitle }}</strong> {{ eventDate }} {{ eventTime }}
             <span class="badge">
             {{numConfirms}}
         </span>
         </a>
     </li>
+    
     {{/if }}
-
 </template>

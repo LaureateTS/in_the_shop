@@ -1,0 +1,37 @@
+<template name="eventDetails">
+    
+    <h1>
+        <span class="label label-primary">
+            <strong>{{ eventTitle }}</strong> {{ eventDate }} {{ eventTime }}
+            <span class="badge">
+                {{numConfirms}}
+            </span>
+        </span>  
+    </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th> First Name </th>
+                <th> Last Name </th>
+                <th> Confirmed </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{# each confirmedPeople}}
+            <tr class="">
+                <td> {{firstName}} </td>
+                <td> {{lastName}} </td>
+                <td> {{timestamp}} </td>
+            </tr>
+            {{/each}}
+            {{# each unconfirmedPeople}}
+            <tr class="danger">
+                <td> {{firstName}} </td>
+                <td> {{lastName}} </td>
+                <td> {{timestamp}} </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</template>
