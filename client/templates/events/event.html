@@ -7,13 +7,13 @@
         </td>
         {{#if isPersonDetailsContext }} {{#if isConfirmed}}
         <td>
-            <button class="toggleConfirm btn btn-xs btn-danger">
+            <button id="confirmButton" class="toggleConfirm btn btn-xs btn-danger" value=true>
                 Unconfirm
             </button>
         </td>
         {{else}}
         <td>
-            <button class="toggleConfirm btn btn-xs btn-success">
+            <button id="confirmButton" class="toggleConfirm btn btn-xs btn-success" value=false>
                 Confirm
             </button>
         </td>

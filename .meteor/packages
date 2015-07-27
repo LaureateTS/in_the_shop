@@ -10,5 +10,4 @@ iron:router
 pcel:loading
 accounts-password
 accounts-ui
-meteorhacks:kadira
 rajit:bootstrap3-datepicker
