@@ -1,5 +1,12 @@
 <template name="eventsList">
     {{#if isPersonDetailsContext }} {{else}}
     <p>Create new <a href="{{pathFor 'eventAdd'}}">Event</a></p>
-    {{/if}} {{#each events}} {{> eventItem }} {{/each}}
+    {{/if}} 
+    <div class="col-md-4">
+        <div class="list-group">
+            {{#each events}} 
+            {{> eventItem }} 
+            {{/each}}
+        </div>
+    </div>
 </template>
