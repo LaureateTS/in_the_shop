@@ -9,18 +9,24 @@
         </button>
         <ul class="dropdown-menu">
             <li class="">
-                <a href="{{pathFor 'personDetails'}}">Details</a>
+                <a class="btn btn-xs" href="{{pathFor 'personDetails'}}">Details</a>
             </li>
-            <li class="{{#if isIn}}" "{{else}}disabled{{/if}}">
-                <a href="#">Option 2</a>
+            <li class="{{#if isIn}}{{else}}disabled{{/if}}">
+                <button class="btn btn-xs">Option 2</button>
             </li>
-            {{#each eventsForDropdown}} 
+            {{#with ..}}
+            {{#each eventsForDropdown}}
             <li>
-                <a href="#{{personId}}" class="toggleConfirm">
-                    {{ eventTitle }}
-                </a>
+                <button class="toggleConfirm btn btn-xs" value="{{personId ..}}">
+                    {{#if confirmedForEvent ..}}
+                        <strong>{{ eventTitle }}</strong> 
+                    {{else}}
+                        {{ eventTitle }}
+                    {{/if}}
+                </button> 
             </li>
             {{/each}}
+            {{/with}}
         </ul>
     </div>
-</template>
+</template> 

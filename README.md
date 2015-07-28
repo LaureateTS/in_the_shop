@@ -23,6 +23,8 @@ The Cloud9 IDE team
 
 ## Support & Documentation
 
+downloadIcon githubIcon facebookIcon twitterIcon
+
 Meteor documentation can be found at http://docs.meteor.com/
 
 ## Installed packages
@@ -31,4 +33,4 @@ Meteor documentation can be found at http://docs.meteor.com/
 |twbs:bootstrap     |css/mobile ui                  |
 |iron:router        |routing/routes/route based subs|
 |pcel:loading       |fancy loading screen           |
-|meteorhacks:kadira |performance monitoring         |
+|rzymek:fullcalendar|google like calendar           |

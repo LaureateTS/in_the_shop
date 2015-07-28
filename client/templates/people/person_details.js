@@ -19,3 +19,25 @@ Template.personDetails.events({
 Template.personDetails.helpers({
     
 });
+
+Template.personDetails.rendered = function(){
+    var calendar = $('#calendar').fullCalendar({
+        dayClick: function(date, jsEvent, view) {
+            var newAppt = {};
+            newAppt.start = date;
+            newAppt.end = date;
+            newAppt.title = "new event";
+            newAppt.createdBy = Meteor.userId();
+            newAppt.forPerson = Iron.Location.get().path.substring(22);
+            Meteor.call('appointmentAdd', newAppt, function(error,result){
+                if (error) {
+                    alert(error.reason);
+                }
+            });
+        }
+
+    });
+};
+
+
+
