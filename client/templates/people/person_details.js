@@ -34,6 +34,7 @@ Template.personDetails.rendered = function() {
           alert(error.reason);
         }
       });
+<<<<<<< HEAD
     },
     events: function(start, end, callback) {
       var appointments = Appointments.find({}).fetch();
@@ -47,4 +48,9 @@ Template.personDetails.rendered = function() {
       calendar.refetchEvents();
     }
   })
+=======
+    }
+
+  });
+>>>>>>> 6514995ed410fff21f8238568c7ba8a83a5c04a3
 };
