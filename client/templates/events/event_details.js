@@ -14,7 +14,6 @@ Template.eventDetails.helpers({
             o.firstName = thisPerson.firstName;
             o.lastName = thisPerson.lastName;
         });
-        console.log(list);
         list.sort(function(a, b) {
             return a.lastName - b.lastName;
         });

@@ -17,7 +17,9 @@ Template.personDetails.events({
 });
 
 Template.personDetails.helpers({
-
+  editing_event: function(){
+    return Session.get('editing_event')
+  }
 });
 
 Template.personDetails.rendered = function() {
@@ -33,24 +35,45 @@ Template.personDetails.rendered = function() {
         if (error) {
           alert(error.reason);
         }
+        Session.set('editing_event', result);
       });
-<<<<<<< HEAD
+    },
+    eventClick: function(appt, jsEvent,view){
+      Session.set('editing_event', appt._id);
+      $('#title').val(appt.title);
+    },
+    eventDrop: function(reqEvent){
+      Meteor.call('appointmentReschedule',reqEvent);
     },
     events: function(start, end, callback) {
       var appointments = Appointments.find({}).fetch();
-      console.log(appointments);
       callback(appointments);
-    }
+    },
+    editable: true,
+    selectable: true
   }).data().fullCalendar;
   Deps.autorun(function(){
     Appointments.find({}).fetch();
     if (calendar) {
       calendar.refetchEvents();
     }
-  })
-=======
-    }
-
   });
->>>>>>> 6514995ed410fff21f8238568c7ba8a83a5c04a3
 };
+
+Template.calendarDialog.events({
+  "click .closeDialog": function(event, template){
+    Session.set('editing_event', null);
+  },
+  "click .save": function(event,template){
+    var title = template.find('#title').value;
+    Meteor.call('appointmentSetTitle',Session.get('editing_event'),title);
+    Session.set('editing_event', null);
+  }
+});
+
+Template.calendarDialog.helpers({
+  title: function(){
+    var appt = Appointments.findOne({_id: Session.get('editing_event')});
+    return appt.title;
+  }
+});

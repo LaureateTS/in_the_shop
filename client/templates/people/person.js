@@ -4,9 +4,7 @@ Template.person.events({
     },
     "click .toggleConfirm": function (event) {
         //event.preventDefault();
-        console.log(event);
         var personId = $(event.target).val();
-        console.log(personId);
         Meteor.call("eventConfirmToggle", this._id, personId);
     }
 });

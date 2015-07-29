@@ -1,7 +1,6 @@
 <template name="layout">
   {{> nav}}
   {{#if currentUser }}
-  {{> calendarDialog}}
     {{> yield}}
   {{else}}
     {{> notFound}}
