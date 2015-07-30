@@ -1,32 +1,37 @@
 <template name="person">
-    <div class="btn-group">
-        <button class="toggleInOut btn btn-lg btn-{{#if isIn}}primary{{else}}default{{/if}}">
-            {{firstName}} <strong>{{lastName}}</strong>
+  <tr>
+    <td>{{firstName}}</td>
+    <td>
+      <strong>{{lastName}}</strong>
+    </td>
+    <td>
+      <div class="dropdown">
+        <button aria-expanded="true" aria-haspopup="true" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1" type="button">
+          Options
         </button>
-
-        <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li class="">
-                <a class="btn btn-xs" href="{{pathFor 'personDetails'}}">Details</a>
-            </li>
-            <li class="{{#if isIn}}{{else}}disabled{{/if}}">
-                <button class="btn btn-xs">Option 2</button>
-            </li>
-            {{#with ..}}
+        <ul aria-labelledby="dropdownMenu1" class="dropdown-menu">
+          <li class="">
+            <a class="btn btn-xs" href="{{pathFor 'personDetails'}}">Details</a>
+          </li>
+          <li class="{{#if isIn}}{{else}}disabled{{/if}}">
+            <a class="btn btn-xs">Option 2</a>
+          </li>
+          {{#with ..}}
             {{#each eventsForDropdown}}
-            <li>
-                <button class="toggleConfirm btn btn-xs" value="{{personId ..}}">
-                    {{#if confirmedForEvent ..}}
-                        <strong>{{ eventTitle }}</strong> 
-                    {{else}}
-                        {{ eventTitle }}
-                    {{/if}}
-                </button> 
-            </li>
+              <li>
+                  <a class="toggleConfirm btn btn-xs {{#if confirmedForEvent ..}}btn-success{{/if}}" href="" id="{{personId ..}}">
+                    {{ eventTitle }}
+                  </a>
+              </li>
             {{/each}}
-            {{/with}}
+          {{/with}}
         </ul>
-    </div>
-</template> 
+      </div>
+    </td>
+    <td>
+      <button class="toggleInOut btn btn-xs btn-{{#if isIn}}danger{{else}}success{{/if}}">
+        {{#if isIn}}Sign out{{else}}Sign In{{/if}}
+      </button>
+    </td>
+  </tr>
+</template>

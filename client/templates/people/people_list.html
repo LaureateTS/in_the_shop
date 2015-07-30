@@ -1,8 +1,39 @@
 <template name="peopleList">
-    <p>
-        Create new <a href="{{pathFor 'personAdd'}}">Person</a>
-    </p>
+  <p>
+    Create new
+    <a href="{{pathFor 'personAdd'}}">Person</a>
+  </p>
+  <div class="container">
     <div class="row">
-        {{#each people}} {{> person this}} {{/each}}
+      <div class="col-md-4">
+        <table class="table table-striped">
+          <thead>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            {{#each peopleOut}}
+              {{> person this}}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-4">
+        <table class="table table-striped">
+          <thead>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th></th>
+          </thead>
+          <tbody>
+            {{#each peopleIn}}
+              {{> person this}}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 </template>
