@@ -3,7 +3,7 @@
     <tr>
         <td>
             <a href="{{pathFor 'eventDetails'}}" class="btn btn-xs btn-default" type="button">
-                <strong>{{ eventTitle }}</strong> {{ eventDate }} {{ eventTime }}
+                <strong>{{ title }}</strong> {{ start }} {{ time }}
             </a>
         </td>
         <td>
@@ -27,7 +27,7 @@
     </tr>
     {{else}}
         <a href="{{pathFor 'eventDetails'}}" class="list-group-item">
-            <strong>{{ eventTitle }}</strong> {{ eventDate }} {{ eventTime }}
+            <strong>{{ title }}</strong> {{ start }} {{ time }}
             <span class="badge">
                 {{numConfirms}}
             </span>

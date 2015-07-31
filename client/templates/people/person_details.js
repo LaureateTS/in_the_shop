@@ -17,7 +17,7 @@ Template.personDetails.events({
 });
 
 Template.personDetails.helpers({
-  editing_event: function(){
+  editing_event: function() {
     return Session.get('editing_event')
   }
 });
@@ -38,22 +38,27 @@ Template.personDetails.rendered = function() {
         Session.set('editing_event', result);
       });
     },
-    eventClick: function(appt, jsEvent,view){
-      Session.set('editing_event', appt._id);
-      $('#title').val(appt.title);
+    eventClick: function(appt, jsEvent, view) {
+      if (appt.calendarEventType === "global") {
+        console.log(jsEvent);
+      } else {
+        console.log(appt);
+        Session.set('editing_event', appt._id);
+        $('#title').val(appt.title);
+      }
     },
-    eventDrop: function(reqEvent){
-      Meteor.call('appointmentReschedule',reqEvent);
+    eventDrop: function(reqEvent) {
+      Meteor.call('appointmentReschedule', reqEvent);
     },
     events: function(start, end, callback) {
-      var appointments = Appointments.find({}).fetch();
+      var appointments = CalendarEvents.find({}).fetch();
       callback(appointments);
     },
     editable: true,
     selectable: true
   }).data().fullCalendar;
-  Deps.autorun(function(){
-    Appointments.find({}).fetch();
+  Deps.autorun(function() {
+    CalendarEvents.find({}).fetch();
     if (calendar) {
       calendar.refetchEvents();
     }
@@ -61,19 +66,21 @@ Template.personDetails.rendered = function() {
 };
 
 Template.calendarDialog.events({
-  "click .closeDialog": function(event, template){
+  "click .closeDialog": function(event, template) {
     Session.set('editing_event', null);
   },
-  "click .save": function(event,template){
+  "click .save": function(event, template) {
     var title = template.find('#title').value;
-    Meteor.call('appointmentSetTitle',Session.get('editing_event'),title);
+    Meteor.call('appointmentSetTitle', Session.get('editing_event'), title);
     Session.set('editing_event', null);
   }
 });
 
 Template.calendarDialog.helpers({
-  title: function(){
-    var appt = Appointments.findOne({_id: Session.get('editing_event')});
+  title: function() {
+    var appt = Appointments.findOne({
+      _id: Session.get('editing_event')
+    });
     return appt.title;
   }
 });

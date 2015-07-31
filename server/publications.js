@@ -33,7 +33,9 @@ Meteor.publish("getUserName", function(id) {
 // TODO only return upcoming event with default filter.
 // TODO add pagination for showing older events and to prevent anomalies when more upcoming events exist then the limit.
 Meteor.publish("events", function() {
-  return Events.find({}, {
+  return CalendarEvents.find({
+    calendarEventType: "global"
+  }, {
     sort: {
       eventDate: -1
     },
@@ -42,5 +44,11 @@ Meteor.publish("events", function() {
 });
 
 Meteor.publish("appointments", function(id) {
-  return Appointments.find({forPerson:id});
+  return CalendarEvents.find({
+    $or: [{
+      forPerson: id
+    }, {
+      calendarEventType: "global"
+    }]
+  });
 });

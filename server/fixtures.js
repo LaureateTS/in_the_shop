@@ -1,4 +1,5 @@
 if (People.find().count() === 0) {
+  console.log("people fixtures toggled")
   // Create sample people
   People.insert({
     firstName: "Charles",
@@ -80,20 +81,27 @@ if (People.find().count() === 0) {
   });
 }
 
-if (Events.find().count() === 0) {
-  Events.insert({
-    eventTitle: "Christmas",
-    eventDate: "25/12/2015",
-    eventTime: "20:00",
+if (CalendarEvents.find().count() === 0) {
+  console.log("events fixtures toggled")
+  CalendarEvents.insert({
+    title: "Christmas",
+    start: "25/12/2015",
+    end: "25/12/2015",
+    time: "20:00",
+    calendarEventType: "global",
   });
-  Events.insert({
-    eventTitle: "New Years",
-    eventDate: "31/12/2015",
-    eventTime: "22:30",
+  CalendarEvents.insert({
+    title: "New Years",
+    start: "31/12/2015",
+    end: "31/12/2015",
+    time: "22:30",
+    calendarEventType: "global",
   });
-  Events.insert({
-    eventTitle: "Eastern",
-    eventDate: "27/03/2016",
-    eventTime: "10:45",
+  CalendarEvents.insert({
+    title: "Eastern",
+    start: "27/03/2016",
+    end: "27/03/2016",
+    time: "10:45",
+    calendarEventType: "global",
   });
 }
