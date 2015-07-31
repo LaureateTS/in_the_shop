@@ -22,6 +22,10 @@ Template.personDetails.helpers({
   }
 });
 
+// yeah ligatures :D => <- facebookIcon
+// moar! != <!--githubIcon-->
+// 
+
 Template.personDetails.rendered = function() {
   var calendar = $('#calendar').fullCalendar({
     dayClick: function(date, jsEvent, view) {
