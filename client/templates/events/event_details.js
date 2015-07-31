@@ -10,7 +10,7 @@ Template.eventDetails.helpers({
             return o.confirmed === true;
         });
         list.forEach(function(o) {
-            var thisPerson = People.findOne(o.person)
+            var thisPerson = People.findOne(o.person);
             o.firstName = thisPerson.firstName;
             o.lastName = thisPerson.lastName;
         });
@@ -22,7 +22,7 @@ Template.eventDetails.helpers({
     unconfirmedPeople: function() {
         var list = this.confirms;
         list.forEach(function(o) {
-            var thisPerson = People.findOne(o.person)
+            var thisPerson = People.findOne(o.person);
             o.firstName = thisPerson.firstName;
             o.lastName = thisPerson.lastName;
         });

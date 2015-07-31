@@ -14,11 +14,10 @@ Template.person.helpers({
   },
   confirmedForEvent: function(person) {
     if (this.confirms) {
-      var filtered = this.confirms.filter(function(o) {
+      var filtered = this.confirms.filter(function (o) {
         return o.confirmed === true && o.person === person._id;
       });
-      if (filtered.length === 1) return true;
-      else return false;
+      return filtered.length === 1;
     }
   },
   personId: function(person) {
