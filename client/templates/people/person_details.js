@@ -22,20 +22,16 @@ Template.personDetails.helpers({
   }
 });
 
-// yeah ligatures :D => <- facebookIcon
-// moar! != <!--githubIcon-->
-// 
-
 Template.personDetails.rendered = function() {
   var calendar = $('#calendar').fullCalendar({
     dayClick: function(date, jsEvent, view) {
       var newAppt = {};
       newAppt.start = date;
-      newAppt.end = date;
       newAppt.title = "new event";
       newAppt.createdBy = Meteor.userId();
       newAppt.forPerson = Iron.Location.get().path.substring(22);
-      Meteor.call('appointmentAdd', newAppt, function(error, result) {
+      console.log(newAppt);
+      Meteor.call('calendarEventAdd', newAppt, function(error, result) {
         if (error) {
           alert(error.reason);
         }
@@ -43,7 +39,7 @@ Template.personDetails.rendered = function() {
       });
     },
     eventClick: function(appt, jsEvent, view) {
-      if (appt.calendarEventType === "global") {
+      if (appt.type === "global") {
         console.log(jsEvent);
       } else {
         console.log(appt);
@@ -82,7 +78,7 @@ Template.calendarDialog.events({
 
 Template.calendarDialog.helpers({
   title: function() {
-    var appt = Appointments.findOne({
+    var appt = CalendarEvents.findOne({
       _id: Session.get('editing_event')
     });
     return appt.title;

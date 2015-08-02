@@ -11,11 +11,13 @@ Template.eventAdd.events({
     "submit form": function(event) {
         event.preventDefault();
         var newEvent = {
-            eventTitle: $(event.target).find('[name=eventTitle]').val(),
-            eventDate: $(event.target).find('[name=eventDate]').val(),
-            eventTime: $(event.target).find('[name=eventTime]').val(),
+            title: $(event.target).find('[name=eventTitle]').val(),
+            start: $(event.target).find('[name=eventDate]').val(),
+            time: $(event.target).find('[name=eventTime]').val(),
+            type: "global",
+            createdBy: Meteor.userId(),
         };
-        Meteor.call('eventAdd', newEvent, function(error, result) {
+        Meteor.call('calendarEventAdd', newEvent, function(error, result) {
             if (error) {
                 alert(error.reason);
             }
