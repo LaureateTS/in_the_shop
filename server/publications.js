@@ -34,7 +34,7 @@ Meteor.publish("getUserName", function(id) {
 // TODO add pagination for showing older events and to prevent anomalies when more upcoming events exist then the limit.
 Meteor.publish("events", function() {
   return CalendarEvents.find({
-    calendarEventType: "global"
+    type: "global"
   }, {
     sort: {
       eventDate: -1
@@ -48,7 +48,7 @@ Meteor.publish("appointments", function(id) {
     $or: [{
       forPerson: id
     }, {
-      calendarEventType: "global"
+      type: "global"
     }]
   });
 });
