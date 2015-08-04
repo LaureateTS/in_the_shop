@@ -16,7 +16,6 @@ Template.eventItem.helpers({
     return false;
   },
   numConfirms: function() {
-    // Inside event.helpers 'this' refers to the event document exactly as it is stored in mongo
     if (this.confirms) {
       return this.confirms.filter(function(o) {
         return o.confirmed === true;
@@ -26,7 +25,7 @@ Template.eventItem.helpers({
     }
   },
   formattedDate: function(){
-    return moment(this.start).format("dddd, MMMM Do YYYY"); 
+    return moment(this.start).format("dddd, MMMM Do YYYY");
   }
 });
 

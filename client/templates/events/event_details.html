@@ -1,12 +1,12 @@
 <template name="eventDetails">
-    
+
     <h1>
         <span class="label label-primary">
-            <strong>{{ eventTitle }}</strong> {{ eventDate }} {{ eventTime }}
+            <strong>{{ title }}</strong> {{ formattedDate }} {{ time }}
             <span class="badge">
                 {{numConfirms}}
             </span>
-        </span>  
+        </span>
     </h1>
 
     <table class="table">
@@ -18,20 +18,23 @@
             </tr>
         </thead>
         <tbody>
-            {{# each confirmedPeople}}
+          <!-- List the confirmed people -->
+          {{# each confirmedPeople}}
             <tr class="">
                 <td> {{firstName}} </td>
                 <td> {{lastName}} </td>
                 <td> {{timestamp}} </td>
             </tr>
-            {{/each}}
-            {{# each unconfirmedPeople}}
+          {{/each}}
+
+          <!-- Add unconfirmed names at the bottom with a different style -->
+          {{# each unconfirmedPeople}}
             <tr class="danger">
                 <td> {{firstName}} </td>
                 <td> {{lastName}} </td>
                 <td> {{timestamp}} </td>
             </tr>
-            {{/each}}
+          {{/each}}
         </tbody>
     </table>
 </template>
