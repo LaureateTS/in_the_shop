@@ -13,7 +13,7 @@ Template.personDetails.events({
       }
     });
     event.target.message.value = "";
-  }
+  decodeURI}
 });
 
 Template.personDetails.helpers({
@@ -40,7 +40,7 @@ Template.personDetails.rendered = function() {
     },
     eventClick: function(appt, jsEvent, view) {
       if (appt.type === "global") {
-        console.log(jsEvent);
+        Meteor.call('eventConfirmToggle', appt._id, Iron.Location.get().path.substring(22))
       } else {
         console.log(appt);
         Session.set('editing_event', appt._id);
@@ -48,12 +48,21 @@ Template.personDetails.rendered = function() {
       }
     },
     eventDrop: function(reqEvent) {
-      Meteor.call('appointmentReschedule', reqEvent);
+      if (reqEvent.type === "personal") {
+        Meteor.call('appointmentReschedule', reqEvent);
+      } else {
+        revertFunc();
+      }
     },
     events: function(start, end, callback) {
       var appointments = CalendarEvents.find({}).fetch();
       callback(appointments);
     },
+    // eventRender: function(event, element) {
+    //   if (event.type === "global") {
+    //     element.draggable = false;
+    //   }
+    // },
     editable: true,
     selectable: true
   }).data().fullCalendar;

@@ -12,6 +12,6 @@ accounts-password
 accounts-ui
 rajit:bootstrap3-datepicker
 mrt:fullcalendar
-meteorhacks:kadira
-firefly:ide
 momentjs:moment
+velocity:html-reporter
+sanjo:jasmine
